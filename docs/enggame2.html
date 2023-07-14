@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Preposition Game</title>
+  <style>
+    /* Add CSS styling for the modal window */
+    .modal {
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    // Define the sentences and correct answers
+    const sentences = [
+      "I went ___ the store.",
+      "The book is ___ the table.",
+      "She lives ___ New York.",
+      "We walked ___ the park.",
+      "The cat jumped ___ the fence.",
+      "He sat ___ me during the movie.",
+      "The ball rolled ___ the bed.",
+      "The pen is ___ your bag.",
+      "We walked ___ the beach.",
+      "The plane flew ___ the clouds.",
+      "The restaurant is ___ the train station.",
+      "The bird flew ___ the tree.",
+      "The car drove ___ the tunnel.",
+      "The cat is hiding ___ the couch.",
+      "They climbed ___ the mountain.",
+      "She walked ___ the stairs.",
+      "The flowers are ___ you.",
+      "The key is ___ the mat.",
+      "The picture hangs ___ the fireplace.",
+      "We drove ___ the museum.",
+      "He put the book ___ the backpack.",
+      "The dog ran ___ me.",
+      "The meeting will take place ___ the office.",
+      "The ship sailed ___ the ocean.",
+      "The letter is addressed ___ him.",
+      "They are waiting ___ the building.",
+      "We met ___ the fountain.",
+      "The ball rolled ___ the goal.",
+      "The children played ___ the trees.",
+      "The cake is ___ you."
+    ];
+
+    const correctAnswers = [
+      "to",
+      "on",
+      "in",
+      "through",
+      "over",
+      "beside",
+      "under",
+      "in",
+      "along",
+      "above",
+      "near",
+      "into",
+      "through",
+      "behind",
+      "up",
+      "down",
+      "for",
+      "under",
+      "above",
+      "past",
+      "into",
+      "towards",
+      "at",
+      "across",
+      "to",
+      "outside",
+      "at",
+      "towards",
+      "among",
+      "for"
+    ];
+
+    // Game function
+    function playGame() {
+      let score = 0;
+      let incorrectAnswers = [];
+
+      for (let i = 0; i < sentences.length; i++) {
+        let userAnswer = prompt(sentences[i]);
+        userAnswer = userAnswer.toLowerCase(); // Convert user input to lowercase for comparison
+        
+        if (userAnswer === correctAnswers[i]) {
+          score++;
+          alert("Correct!");
+        } else {
+          incorrectAnswers.push({
+            sentence: sentences[i],
+            userAnswer: userAnswer,
+            correctAnswer: correctAnswers[i]
+          });
+          alert("Incorrect! The correct answer is '" + correctAnswers[i] + "'.");
+        }
+      }
+
+      alert("Game over! Your score: " + score + "/" + sentences.length);
+      alert("Incorrect answers: " + incorrectAnswers.length);
+
+      let incorrectSentencesMessage = "Incorrect sentences:\n\n";
+      for (let i = 0; i < incorrectAnswers.length; i++) {
+        incorrectSentencesMessage +=
+          "Your answer: " +
+          incorrectAnswers[i].userAnswer +
+          "\nCorrect answer: " +
+          incorrectAnswers[i].correctAnswer +
+          "\nFull sentence: " +
+          incorrectAnswers[i].sentence.replace("___", incorrectAnswers[i].correctAnswer) +
+          "\n\n";
+      }
+
+      alert(incorrectSentencesMessage);
+    }
+
+    // Start the game
+    playGame();
+  </script>
+</head>
+<body>
+  <!-- Add any necessary HTML elements here -->
+</body>
+</html>
